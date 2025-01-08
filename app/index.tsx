@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function App() {
-  const [input1, setInput1] = useState('');
-  const [input2, setInput2] = useState('');
-  const [result, setResult] = useState(null);
+const HomeScreen: React.FC = () => {
+  const [input1, setInput1] = useState<string>('');
+  const [input2, setInput2] = useState<string>('');
+  const [result, setResult] = useState<string | number | null>(null);
 
-  const handleCalculation = (operator) => {
+  const handleCalculation = (operator: string): void => {
     const num1 = parseFloat(input1);
     const num2 = parseFloat(input2);
 
@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calculator</Text>
+      <Text style={styles.title}>Simple Calculator</Text>
       <TextInput
         style={styles.input}
         placeholder="Enter first number"
@@ -67,7 +67,7 @@ export default function App() {
       {result !== null && <Text style={styles.result}>Result: {result}</Text>}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -113,3 +113,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 });
+
+export default HomeScreen;
